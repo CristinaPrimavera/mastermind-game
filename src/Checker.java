@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 class Checker {
 
-    // TODO: usar el foreach donde puedas
-    // TODO: leer sobre Enums y tratar de usarlos
+    // TODO: use foreach when appropriate
+    // TODO: learn about enums and implement then when appropriate
 
     private static Scanner scanner = new Scanner(System.in);
     private int[] numbers = {1, 2, 2, 4};
 
+    /**
+     * Starts the game on the console
+     */
     public void start() {
 
         String[] results;
@@ -22,6 +25,13 @@ class Checker {
         } while (!resultsChecker(results));
     }
 
+
+    /**
+     * Checks if the input is correct
+     *
+     * @param guessedNumbers input guess
+     * @return result strings
+     */
     public String[] numberChecker(int[] guessedNumbers) {
 
         String[] results = new String[4];
@@ -42,13 +52,7 @@ class Checker {
         return results;
     }
 
-    /**
-     * Esta funcion lee del scanner y guarda en un array con lo introducido
-     *
-     * @return los guess numbers
-     * @throws InputMismatchException
-     * @throws IllegalArgumentException
-     */
+
     private int[] arrayPopulator() {
         int[] array = new int[4];
 
