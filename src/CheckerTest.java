@@ -4,32 +4,31 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class CheckerTest {
 
-    private String blanco = "blanco";
-    private String rojo = "rojo";
+    private String white = "white";
+    private String red = "red";
 
     @Test
-    public void todosBlancoTest() {
+    public void allAreWhiteTest() {
         // when guess 1234
         // given code 1234
-        // then all blanco
-
+        // then all white
         Checker gameTest = new Checker();
         gameTest.setNumbers(new int[]{1, 2, 3, 4});
 
         int[] givenGuess = new int[]{1, 2, 3, 4};
 
-        String[] expectedResult = new String[]{blanco, blanco, blanco, blanco};
+        String[] expectedResult = new String[]{white, white, white, white};
         String[] checkerResult = gameTest.numberChecker(givenGuess);
         assertArrayEquals(expectedResult, checkerResult);
 
         // lambda expression
-//        boolean todosSonBlancos = Arrays.stream(checkerResult).allMatch(color -> "blanco".equalsIgnoreCase(color));
-//        System.out.println("todosSonBlancos " + todosSonBlancos);
+//        boolean allAreWhite = Arrays.stream(checkerResult).allMatch(color -> "white".equalsIgnoreCase(color));
+//        System.out.println("allAreWhite " + allAreWhite);
 
     }
 
     @Test
-    public void todosRojosTest() {
+    public void allAreRedTest() {
         // given code 1234
         // when guess 4321
         // then all red
@@ -38,14 +37,14 @@ public class CheckerTest {
 
         int[] givenGuess = new int[]{4, 3, 2, 1};
 
-        String[] expectedResult = new String[]{rojo, rojo, rojo, rojo};
+        String[] expectedResult = new String[]{red, red, red, red};
         String[] checkerResult = gameTest.numberChecker(givenGuess);
         assertArrayEquals(expectedResult, checkerResult);
 
     }
 
     @Test
-    public void nigunoExisteTest() {
+    public void noneExistTest() {
         // given code 2233
         // when guess 1144
         // then all nothing
@@ -61,7 +60,7 @@ public class CheckerTest {
     }
 
     @Test
-    public void repetidosExisteTest() {
+    public void repeatedExistTest() {
         // given code 1212
         // when guess 2112
         // then red red white white
@@ -70,13 +69,13 @@ public class CheckerTest {
 
         int[] givenGuess = new int[]{2, 1, 1, 2};
 
-        String[] expectedResult = new String[]{rojo, rojo, blanco, blanco};
+        String[] expectedResult = new String[]{red, red, white, white};
         String[] checkerResult = gameTest.numberChecker(givenGuess);
         assertArrayEquals(expectedResult, checkerResult);
     }
 
     @Test
-    public void unoNoExisteTest() {
+    public void oneDoesNotExistTest() {
         // given code 1123
         // when guess 2134
         // then red white red null
@@ -85,20 +84,20 @@ public class CheckerTest {
 
         int[] givenGuess = new int[]{2, 1, 3, 4};
 
-        String[] expectedResult = new String[]{rojo, blanco, rojo, null};
+        String[] expectedResult = new String[]{red, white, red, null};
         String[] checkerResult = gameTest.numberChecker(givenGuess);
         assertArrayEquals(expectedResult, checkerResult);
     }
 
 
     @Test
-    public void tuTest() {
+    public void myTest() {
         Checker gameTest = new Checker();
         gameTest.setNumbers(new int[]{1, 2, 4, 2});
 
         int[] givenGuess = new int[]{1, 2, 4, 3};
 
-        String[] expectedResult = new String[]{blanco, blanco, blanco, null};
+        String[] expectedResult = new String[]{white, white, white, null};
         String[] checkerResult = gameTest.numberChecker(givenGuess);
         assertArrayEquals(expectedResult, checkerResult);
 
@@ -106,13 +105,14 @@ public class CheckerTest {
 
 
 //    @Test
-//    public void repetidosExiste2() {
+//    public void repeatedExistTest2() {
 //        Checker gameTest = new Checker();
 //        gameTest.setNumbers(new int[]{1, 2, 3, 4});
 //
 //        int[] givenGuess = new int[]{1, 1, 3, 4};
 //
-//        String[] expectedResult = new String[]{blanco, null, blanco, blanco};   //Por el diseno, ese segundo 1 va a dar rojo
+//        String[] expectedResult = new String[]{white, null, white, white};   //Will fail at the moment! Because of
+//                                                                              the design, the 2nd one will be red
 //        String[] checkerResult = gameTest.numberChecker(givenGuess);
 //        assertArrayEquals(expectedResult, checkerResult);
 //

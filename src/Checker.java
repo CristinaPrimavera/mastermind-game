@@ -40,10 +40,10 @@ class Checker {
             for (int j = 0; j < numbers.length; j++) {
                 if (guessedNumbers[i] == numbers[j]) {
                     if (i == j) {
-                        results[i] = "blanco";
+                        results[i] = "white";
                         break;
                     } else {
-                        results[i] = "rojo";
+                        results[i] = "red";
                     }
                 }
             }
@@ -76,7 +76,7 @@ class Checker {
     private boolean resultsChecker(String[] results) {
 
         for (String color : results) {
-            if (!"blanco".equalsIgnoreCase(color)) {
+            if (!"white".equalsIgnoreCase(color)) {
                 System.out.println("Try again!");
                 return false;
             }
